@@ -1,51 +1,82 @@
-import React from 'react';
-import Logo from './Logo';
-import { Link } from 'react-router';
+import React from "react";
+import Logo from "./Logo";
+import { Link, NavLink } from "react-router";
+import { FaLocationArrow } from "react-icons/fa6";
 
 const Navbar = () => {
-    return (
-       <div className="navbar mb-5">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
-      <ul
-        tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div>
-    <Link className="text-xl"><Logo></Logo></Link>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
+  const navLinks = (
+    <>
       <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
+        <NavLink to={"/services"}>Services</NavLink>
       </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
-</div>
-    );
+      <li>
+        <NavLink to={"/coverage"}>Coverage</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/about"}>About Us</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/pricing"}>Pricing</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/blog"}>Blog</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/contact"}>Contact</NavLink>
+      </li>
+    </>
+  );
+
+  return (
+    <div className="navbar mb-5 font-semibold">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {" "}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />{" "}
+            </svg>
+          </div>
+          <ul
+            tabIndex="-1"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            {navLinks}
+          </ul>
+        </div>
+        <Link className="text-xl">
+          <Logo></Logo>
+        </Link>
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal space-x-6 px-1 *btn *btn-ghost transition-all duration-700">
+          {navLinks}
+        </ul>
+      </div>
+      <div className="navbar-end space-x-3">
+        <Link className="btn border-zinc-300 text-gray-500 bg-transparent hover:bg-base-300">Sign In</Link>
+        <span className="flex items-center">
+          <Link className=" rounded-md bg-primary btn ">
+            Sign Up
+          </Link>
+          <span className="bg-gray-700 text-white p-2 rounded-full">
+            <FaLocationArrow size={28}></FaLocationArrow>
+          </span>
+        </span>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
