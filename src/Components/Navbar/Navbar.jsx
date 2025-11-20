@@ -2,8 +2,13 @@ import React from "react";
 import Logo from "./Logo";
 import { Link, NavLink } from "react-router";
 import { FaLocationArrow } from "react-icons/fa6";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+  const {user, logOut}=useAuth();
+  const handleLogOut = ()=>{
+    logOut().then().catch(error => console.log(error))
+  }
   const navLinks = (
     <>
       <li>
@@ -55,25 +60,26 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link className="text-xl">
+        <div className="text-xl">
           <Logo></Logo>
-        </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal space-x-6 px-1 *btn *btn-ghost transition-all duration-700">
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end space-x-3">
-        <Link className="btn border-zinc-300 text-gray-500 bg-transparent hover:bg-base-300">Sign In</Link>
-        <span className="flex items-center">
-          <Link className=" rounded-md bg-primary btn ">
-            Sign Up
-          </Link>
-          <span className="bg-gray-700 text-white p-2 rounded-full">
-            <FaLocationArrow size={28}></FaLocationArrow>
-          </span>
+      <div className="navbar-end flex items-center gap-3">
+      {
+        user ? <button onClick={handleLogOut} className="btn border-zinc-300 text-gray-500 bg-transparent hover:bg-base-300">LogOut</button> :
+          <Link to='/login' className="btn border-zinc-300 text-gray-500 bg-transparent hover:bg-base-300">Sign In</Link>
+      }
+        <Link className="flex items-center" to='/rider' >
+          <span className=" rounded-md bg-primary btn ">Be a Rider </span>
+        <span className="bg-gray-700 text-white p-2 rounded-full">
+          <FaLocationArrow size={28}></FaLocationArrow>
         </span>
+        </Link>
       </div>
     </div>
   );

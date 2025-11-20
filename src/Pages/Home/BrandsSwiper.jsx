@@ -22,7 +22,7 @@ export default function BrandSwiper() {
       <div className='my-10 p-15 hidden md:block'>
         <Swiper
         slidesPerView={4}
-        FreeMode={true}
+        freeMode={true}
         spaceBetween={100}
         centeredSlides={true}
         autoplay={{
@@ -40,7 +40,7 @@ export default function BrandSwiper() {
       <div className='p-10 md:hidden'>
         <Swiper
         slidesPerView={2}
-        FreeMode={true}
+        freeMode={true}
         spaceBetween={5}
         centeredSlides={true}
         autoplay={{

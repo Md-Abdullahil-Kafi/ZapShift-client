@@ -50,7 +50,7 @@ const FAQ = () => {
         {/* FAQ Accordion Container */}
         <div className="space-y-4">
           {faqData.map((item, index) => (
-            <div className="collapse collapse-arrow bg-base-200 border border-base-300 text-base-content text-start">
+            <div key={index} className="collapse collapse-arrow bg-base-200 border border-base-300 text-base-content text-start">
               <input type="radio" name="my-accordion-2" defaultChecked />
               <div className="collapse-title font-semibold">
                 How do I create an account?

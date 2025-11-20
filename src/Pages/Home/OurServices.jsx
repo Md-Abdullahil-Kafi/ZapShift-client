@@ -8,7 +8,6 @@ const OurServices = () => {
         .then(data => setService(data))
     },[])
     
-    console.log(service)
     return (
         <div className='bg-secondary p-15 rounded-2xl my-10 space-y-8 text-center'>
             <h1 className='font-bold text-5xl text-white'>Our Services</h1>
