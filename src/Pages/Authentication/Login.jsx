@@ -21,7 +21,9 @@ const Login = () => {
   const handleLogIn = (data)=>{
     signInUser(data.email, data.password)
     .then(result => {
-      console.log(result.user)
+      if(!result.user.emailVerified){
+        alert(`Please verify your email address`)
+      }
       navigate(location?.state || "/") ;     
     }).catch(error => {
       console.log(error)
@@ -79,7 +81,7 @@ const Login = () => {
           />
           {errors.password && <p className="text-red-500">{errors.password.message}</p>}
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <Link to={"/forgotPassword"} className="link link-hover">Forgot password?</Link>
           </div>
           <button className="btn btn-primary text-black mt-4">Login</button>
         </form>

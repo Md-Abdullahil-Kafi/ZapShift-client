@@ -1,8 +1,9 @@
 import React from "react";
 import Logo from "./Logo";
-import { Link, NavLink } from "react-router";
+import { Link } from "react-router";
 import { FaLocationArrow } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
+import AnimatedNavLink from "./AnimatedNavLink";
 
 const Navbar = () => {
   const {user, logOut}=useAuth();
@@ -10,28 +11,38 @@ const Navbar = () => {
     logOut().then().catch(error => console.log(error))
   }
   const navLinks = (
-    <>
-      <li>
-        <NavLink to={"/services"}>Services</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/coverage"}>Coverage</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/about"}>About Us</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/pricing"}>Pricing</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/blog"}>Blog</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/contact"}>Contact</NavLink>
-      </li>
-    </>
-  );
+  <>
+    <li>
+      <AnimatedNavLink to="/services">Services</AnimatedNavLink>
+    </li>
 
+    <li>
+      <AnimatedNavLink to="/coverage">Coverage</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/about">About Us</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/trackConsignment">Track Order</AnimatedNavLink>
+    </li>
+    <li>
+      <AnimatedNavLink to="/pricing">Pricing</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/blog">Blog</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/sendParcel">SendPercel</AnimatedNavLink>
+    </li>
+    { user && <li>
+      <AnimatedNavLink to="/dashboard/my-parcels">My-parcels</AnimatedNavLink>
+    </li>}
+  </>
+);
   return (
     <div className="navbar mb-5 font-semibold">
       <div className="navbar-start">
