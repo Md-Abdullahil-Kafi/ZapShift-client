@@ -1,30 +1,36 @@
 import React from "react";
 import Logo from "../Navbar/Logo";
 import { NavLink } from "react-router";
+import AnimatedNavLink from "../Navbar/AnimatedNavLink";
 
 const Footer = () => {
-  const navLinks = (
-    <>
-      <li>
-        <NavLink to={"/services"}>Services</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/coverage"}>Coverage</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/about"}>About Us</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/pricing"}>Pricing</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/blog"}>Blog</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/contact"}>Contact</NavLink>
-      </li>
-    </>
-  );
+    const navLinks = (
+  <>
+    <li>
+      <AnimatedNavLink to="/services">Services</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/coverage">Coverage</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/about">About Us</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/pricing">Pricing</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/blog">Blog</AnimatedNavLink>
+    </li>
+
+    <li>
+      <AnimatedNavLink to="/contact">Contact</AnimatedNavLink>
+    </li>
+  </>
+);
   return (
     <footer className="footer footer-horizontal footer-center bg-base-300 text-base-content rounded-3xl p-10">
       <aside>
